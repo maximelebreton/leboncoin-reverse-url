@@ -1,7 +1,7 @@
 {
   "name": "leboncoin-reverse-url",
-  "url" : "https://github.com/maximelebreton/leboncoin-reverse-url",
-  "version": "1.1.1",
+  "url": "https://github.com/maximelebreton/leboncoin-reverse-url",
+  "version": "1.1.2",
   "description": "Get api params from url",
   "main": "index.js",
   "scripts": {
