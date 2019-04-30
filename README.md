@@ -1,5 +1,5 @@
 # leboncoin-reverse-url
-converts any offer leboncoin `string` url (with ?query) to its equivalent `object` params for api calls
+converts any leboncoin `string` url (with ?query) to its equivalent `object` params for api calls
 
 ## Install
 ```node
