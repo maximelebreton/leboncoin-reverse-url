@@ -1,4 +1,5 @@
 # leboncoin-reverse-url
+converts any offer leboncoin `string` url (with ?query) to its equivalent `object` params for api calls
 
 ## Install
 ```node
@@ -9,7 +10,7 @@ npm install leboncoin-reverse-url
 ```node
 const reverseUrl = require('leboncoin-reverse-url');
 
-const url = 'https://www.leboncoin.fr/recherche/category=10&text=studio&locations=Rennes&owner_type=pro&furnished=2&real_estate_type=2&price=150-350'
+const url = 'https://www.leboncoin.fr/recherche/?category=10&text=studio&locations=Rennes&owner_type=pro&furnished=2&real_estate_type=2&price=150-350'
 const params = reverseUrl(url)
 ```
 
