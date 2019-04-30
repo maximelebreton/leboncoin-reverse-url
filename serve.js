@@ -3,8 +3,6 @@ const Url = require('url');
 const ReverseUrl = require('./index.js');
 const testUrls = require('./src/testUrls.json');
 
-console.log(ReverseUrl, '<---------------------');
-
 let html = ``;
 html += `<link rel="stylesheet"
 href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">`;
