@@ -1,0 +1,14 @@
+[
+  "https://www.leboncoin.fr/recherche/?text=voiture&lat=48.0980152&lng=-1.651935&radius=30000",
+  "https://www.leboncoin.fr/recherche/?text=voiture&locations=Paris",
+  "https://www.leboncoin.fr/recherche/?text=voiture&locations=Paris_75015,Paris_75013",
+  "https://www.leboncoin.fr/recherche/?text=voiture&locations=Paris_75009,Paris,Paris_75017",
+  "https://www.leboncoin.fr/recherche/?text=voiture&locations=r_12",
+  "https://www.leboncoin.fr/recherche/?category=2&text=voiture&locations=d_29",
+  "https://www.leboncoin.fr/recherche/?category=43&locations=Plo%C3%ABrmel_56800",
+  "https://www.leboncoin.fr/recherche/?category=2&text=voiture&brand=Fiat&price=250-500&page=2",
+  "https://www.leboncoin.fr/recherche/?category=2&text=voiture&brand=Fiat&gearbox=1&vehicle_vsp=avecpermis&fuel=1&price=250-max&mileage=10000-90000",
+  "https://www.leboncoin.fr/recherche/?category=9&text=voiture&real_estate_type=1,2&immo_sell_type=old,new&price=min-50000&square=20-35&rooms=1-3",
+  "https://www.leboncoin.fr/recherche/?category=33&jobcontract=2&jobduty=3&jobexp=3&jobfield=2&jobstudy=2&jobtime=2",
+  "https://www.leboncoin.fr/recherche/?category=12&swimming_pool=1&bookable=1&date=20190430-20190509&price=100-max&capacity=3-max"
+]

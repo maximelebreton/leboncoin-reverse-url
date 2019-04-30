@@ -1,0 +1,19 @@
+{
+  "name": "leboncoin-reverse-url",
+  "version": "1.0.0",
+  "description": "Get api params from url",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon serve.js 8080",
+    "test": "jest --watchAll"
+  },
+  "dependencies": {
+    "querystring": "0.2.0",
+    "url": "0.11.0"
+  },
+  "devDependencies": {
+    "node-fetch": "2.4.1",
+    "jest": "24.7.1",
+    "nodemon": "1.18.4"
+  }
+}
