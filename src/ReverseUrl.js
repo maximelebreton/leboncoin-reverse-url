@@ -17,6 +17,14 @@ const ReverseUrl = {
     return urlParams;
   },
 
+  getOwnerType: ({ owner_type }) => {
+    if (owner_type) {
+      return owner_type;
+    } else {
+      return 'all';
+    }
+  },
+
   getCategoryFilter: ({ category }) => {
     return {
       id: category
@@ -120,7 +128,7 @@ const ReverseUrl = {
     let enumEntries = [];
     let rangeEntries = [];
 
-    let notFilters = ['page', 'limit', 'limit_alu', 'offset'];
+    let notFilters = ['owner_type', 'page', 'limit', 'limit_alu', 'offset'];
     let categoryFilter = ['category'];
     let keywordsFilter = ['text', 'search_in'];
     let locationFilter = ['locations', 'lat', 'lng', 'radius'];
@@ -159,8 +167,8 @@ const ReverseUrl = {
   },
 
   getApiParamsFromUrl: url => {
-    const limit = 35;
     const params = ReverseUrl.getUrlParams(url);
+
     const {
       category,
       enums,
@@ -168,10 +176,11 @@ const ReverseUrl = {
       locations,
       keywords
     } = ReverseUrl.getFilters(params);
-
+    const owner_type = ReverseUrl.getOwnerType(params);
+    const limit = 35;
     const page = params.page || 1;
 
-    return {
+    let apiParams = {
       filters: {
         category,
         enums,
@@ -179,10 +188,13 @@ const ReverseUrl = {
         locations,
         keywords
       },
+      owner_type,
       limit: limit,
       limit_alu: 3,
       offset: (page - 1) * limit
     };
+
+    return apiParams;
   }
 };
 

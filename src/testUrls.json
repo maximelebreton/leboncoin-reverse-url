@@ -1,4 +1,6 @@
 [
+  "https://www.leboncoin.fr/recherche/?category=10&text=studio&locations=Rennes&owner_type=pro&furnished=2&real_estate_type=2&price=150-350",
+  "https://www.leboncoin.fr/recherche/?category=10&text=studio&locations=Rennes&owner_type=private&furnished=2&real_estate_type=2&price=150-350",
   "https://www.leboncoin.fr/recherche/?text=voiture&lat=48.0980152&lng=-1.651935&radius=30000",
   "https://www.leboncoin.fr/recherche/?text=voiture&locations=Paris",
   "https://www.leboncoin.fr/recherche/?text=voiture&locations=Paris_75015,Paris_75013",
