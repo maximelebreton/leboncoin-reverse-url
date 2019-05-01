@@ -1,5 +1,6 @@
 const Url = require('url');
 const QueryString = require('querystring');
+const Cleaner = require('deep-cleaner');
 
 /** sample:
  *
@@ -20,15 +21,17 @@ const ReverseUrl = {
   getOwnerType: ({ owner_type }) => {
     if (owner_type) {
       return owner_type;
-    } else {
-      return 'all';
     }
+    return '';
   },
 
   getCategoryFilter: ({ category }) => {
-    return {
-      id: category
-    };
+    if (category) {
+      return {
+        id: category
+      };
+    }
+    return {};
   },
 
   getKeywordsFilter: ({ text, search_in }) => {
@@ -43,9 +46,7 @@ const ReverseUrl = {
   },
 
   getEnumsFilter: items => {
-    let enums = {
-      ad_type: ['offer']
-    };
+    let enums = {};
     items.forEach(([key, value]) => {
       let valueStringToArray = value.split(',');
       enums[key] = valueStringToArray;
@@ -146,7 +147,7 @@ const ReverseUrl = {
         if (!filters.keywords)
           filters.keywords = ReverseUrl.getKeywordsFilter(params);
       } else if (locationFilter.includes(key)) {
-        if (!filters.category)
+        if (!filters.location)
           filters.location = ReverseUrl.getLocationFilter(params);
       } else {
         let value = params[key];
@@ -169,32 +170,20 @@ const ReverseUrl = {
   getApiParamsFromUrl: url => {
     const params = ReverseUrl.getUrlParams(url);
 
-    const {
-      category,
-      enums,
-      ranges,
-      locations,
-      keywords
-    } = ReverseUrl.getFilters(params);
+    const filters = ReverseUrl.getFilters(params);
     const owner_type = ReverseUrl.getOwnerType(params);
     const limit = 35;
     const page = params.page || 1;
 
     let apiParams = {
-      filters: {
-        category,
-        enums,
-        ranges,
-        locations,
-        keywords
-      },
+      filters: Cleaner(filters),
       owner_type,
       limit: limit,
       limit_alu: 3,
       offset: (page - 1) * limit
     };
 
-    return apiParams;
+    return Cleaner(apiParams);
   }
 };
 

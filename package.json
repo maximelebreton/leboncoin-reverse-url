@@ -9,6 +9,7 @@
     "test": "jest --watchAll"
   },
   "dependencies": {
+    "deep-cleaner": "1.2.0",
     "querystring": "0.2.0",
     "url": "0.11.0"
   },

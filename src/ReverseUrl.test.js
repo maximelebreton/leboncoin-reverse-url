@@ -4,10 +4,47 @@ const fetch = require('node-fetch');
 const ReverseUrl = require('./ReverseUrl');
 const testUrls = require('./testUrls.json');
 
-test('check if urls return params', () => {
+var flattenObject = function(ob) {
+  var toReturn = {};
+
+  for (var i in ob) {
+    if (!ob.hasOwnProperty(i)) continue;
+
+    if (typeof ob[i] == 'object') {
+      var flatObject = flattenObject(ob[i]);
+      for (var x in flatObject) {
+        if (!flatObject.hasOwnProperty(x)) continue;
+
+        toReturn[i + '.' + x] = flatObject[x];
+      }
+    } else {
+      toReturn[i] = ob[i];
+    }
+  }
+  return toReturn;
+};
+
+describe('dirty check if each param is found in the response', () => {
   testUrls.forEach(url => {
-    let params = ReverseUrl.getApiParamsFromUrl(url);
-    expect(typeof params).toBe('object');
+    test(url, () => {
+      let apiParams = ReverseUrl.getApiParamsFromUrl(url);
+      let urlParams = ReverseUrl.getUrlParams(url);
+      let stringApiParams = JSON.stringify(apiParams);
+      Object.keys(urlParams).forEach((urlParamKey, index) => {
+        if (urlParamKey.includes(['page'])) {
+          return;
+        }
+        if (urlParamKey.includes(['locations'])) {
+          urlParamKey = 'location';
+        }
+        let find = stringApiParams.search(urlParamKey) > -1 ? true : false;
+        if (!find) {
+          console.log(urlParamKey, find, url);
+        }
+        expect(find).toBe(true);
+      });
+      //expect(typeof params).toBe('object');
+    });
   });
 });
 
